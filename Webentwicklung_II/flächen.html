@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farbflächen-Beispiel</title>
+  <style>
+    /* Stile für die Farbflächen */
+    .color-box {
+      width: 200px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    /* Absolut fixierte Farbfläche */
+    #absolute-fixed-box {
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      background-color: red;
+    }
+
+    /* Relativ positionierte Farbfläche */
+    #relative-box {
+      position: relative;
+      top: 320px;
+      left: 100px;
+      background-color: green;
+    }
+
+    /* Fixierte Farbfläche */
+    #fixed-box {
+      position: fixed;
+      bottom: 50px;
+      right: 50px;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Farbflächen-Beispiel</h1>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget lacus vitae nisl interdum aliquet. Suspendisse potenti. Donec non lorem in eros auctor commodo in ut nulla.</p>
+
+
+  <!-- Absolut fixierte Farbfläche -->
+  <div id="absolute-fixed-box" class="color-box">
+    Absolut fixiert
+  </div>
+
+  <!-- Relativ positionierte Farbfläche -->
+  <div id="relative-box" class="color-box">
+    Relativ positioniert
+  </div>
+
+  <!-- Fixierte Farbfläche -->
+  <div id="fixed-box" class="color-box">
+    Fixiert
+  </div>
+
+</body>
+</html>
+
+<!--In CSS gibt es verschiedene Positionierungseigenschaften, die bestimmen, wie Elemente auf einer Webseite positioniert werden. Hier sind die drei Positionierungseigenschaften, die in dem Beispiel verwendet wurden, und ihre Unterschiede:
+
+1. `position: absolute;`:
+Absolut positionierte Elemente werden in Bezug auf ihr nächstes positioniertes Elternelement (d.h. ein Elternelement mit einer Positionierungseigenschaft ungleich `static`, dem Standardwert) oder, falls keines vorhanden ist, in Bezug auf das `<body>`-Element positioniert. Die genaue Position wird mit den Offset-Eigenschaften `top`, `right`, `bottom` und `left` festgelegt. Absolut positionierte Elemente werden aus dem normalen Dokumentfluss entfernt und überlappen möglicherweise andere Elemente.
+
+Verwenden Sie absolute Positionierung, wenn Sie ein Element an einer bestimmten Stelle auf der Seite platzieren möchten, unabhängig von anderen Elementen. Dies kann hilfreich sein, um beispielsweise Tooltips, Popups oder andere Benutzeroberflächen-Elemente zu erstellen.
+
+2. `position: relative;`:
+Relativ positionierte Elemente werden zunächst so positioniert, als hätten sie `position: static;` (der Standardwert). Dann werden sie mit den Offset-Eigenschaften `top`, `right`, `bottom` und `left` verschoben, ohne andere Elemente zu beeinflussen. Im Gegensatz zu absolut positionierten Elementen bleiben relativ positionierte Elemente im normalen Dokumentfluss und nehmen Platz ein.
+
+Verwenden Sie relative Positionierung, wenn Sie ein Element leicht verschieben möchten, ohne dass sich dies auf die Position anderer Elemente auswirkt. Dies kann hilfreich sein, um beispielsweise ein Element innerhalb eines Containers zu positionieren oder einen leichten Versatz zu erzeugen.
+
+3. `position: fixed;`:
+Fixierte Elemente werden in Bezug auf das Browserfenster (Viewport) positioniert und bleiben an derselben Stelle, auch wenn der Benutzer scrollt. Die genaue Position wird mit den Offset-Eigenschaften `top`, `right`, `bottom` und `left` festgelegt. Fixierte Elemente werden aus dem normalen Dokumentfluss entfernt und überlappen möglicherweise andere Elemente.
+
+Verwenden Sie fixierte Positionierung, wenn Sie ein Element an derselben Stelle halten möchten, unabhängig davon, ob der Benutzer scrollt. Dies kann hilfreich sein, um beispielsweise ein Navigationsmenü, eine Symbolleiste oder ein Chat-Fenster zu erstellen, das immer sichtbar bleibt.
+
+Zusammenfassend lässt sich sagen, dass die Wahl der Positionierungseigenschaft von der gewünschten Platzierung und dem Verhalten des Elements auf der Webseite abhängt. Absolute Positionierung eignet sich für Elemente, die unabhängig von anderen Elementen platziert werden sollen, relative Positionierung für leichte Verschiebungen innerhalb des normalen Dokumentflusses und fixierte Positionierung für Elemente, die immer an derselben Stelle bleiben sollen, wenn der Benutzer scrollt.-->
