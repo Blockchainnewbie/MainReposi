@@ -1,0 +1,150 @@
+/* Allgemeine Stile */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+  }
+  
+  .site-header a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .site-header a:hover {
+    color: #ccc;
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+  
+  .menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .menu ul li {
+    margin-right: 10px;
+  }
+  
+  .search input[type="text"] {
+    border: none;
+    border-radius: 5px 0 0 5px;
+    padding: 5px;
+    font-size: 14px;
+  }
+  
+  .search button[type="submit"] {
+    background-color: #555;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  /* Header mit zentriertem Logo und Menü */
+  .center-logo .logo {
+    order: 1;
+    flex-grow: 1;
+  }
+  
+  .center-logo .menu {
+    order: 3;
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+  
+  .center-logo .search {
+    order: 2;
+  }
+  
+  /* Header mit Menü-Schaltfläche für kleine Bildschirme */
+  .mobile-menu {
+    position: relative;
+  }
+  
+  .mobile-menu .menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    display: none;
+    flex-direction: column;
+  }
+  
+  .mobile-menu .menu ul li {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .mobile-menu .menu-toggle {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .mobile-menu .menu {
+      display: flex;
+    }
+  
+    .mobile-menu .menu-toggle {
+      display: block;
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
+  
+    .menu-text {
+      display: none;
+    }
+  
+    .menu-icon {
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V8H3z'/%3E%3C/svg%3E");
+    }
+    
+    .menu-toggle.open .menu-icon {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/%3E%3C/svg%3E");
+    }
+    
+  }
+  
+  /* Header mit Benutzerprofil und Einstellungen */
+  .profile-menu {
+    position: relative;
+  }
+  
+  .profile-menu img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .profile-menu ul {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #333;
+    display: none;
+    flex-direction: column;
+  }
+  
+  .profile-menu img:hover + ul {
+    display: flex;
+  }
+  

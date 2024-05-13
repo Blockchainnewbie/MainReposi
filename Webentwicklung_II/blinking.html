@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blinkende und Laufschriften</title>
+  <style>
+    /* Stile für den blinkenden Text */
+    .blinking-text {
+      animation: blink 1s infinite; /* Animiert den Text mit der blink-Animation */
+      font-size: 24px; /* Schriftgröße für den blinkenden Text */
+      font-weight: bold; /* Schriftgewicht für den blinkenden Text */
+    }
+
+    /* Stile für die Laufschrift */
+    .marquee-text {
+      animation: marquee 10s linear infinite; /* Animiert den Text mit der marquee-Animation */
+      font-size: 24px; /* Schriftgröße für die Laufschrift */
+      font-weight: bold; /* Schriftgewicht für die Laufschrift */
+      white-space: nowrap; /* Entfernt Zeilenumbrüche im Text */
+      overflow: hidden; /* Versteckt den Text, der außerhalb des Eltern-Elements liegt */
+      box-sizing: border-box; /* Berechnet Breite und Höhe des Elements einschließlich Padding und Border */
+    }
+
+    /* Stile für die blinkende Laufschrift */
+    .blinking-marquee-text {
+      animation: blink 1s infinite, marquee 10s linear infinite; /* Animiert den Text mit beiden Animationen */
+      font-size: 24px; /* Schriftgröße für die blinkende Laufschrift */
+      font-weight: bold; /* Schriftgewicht für die blinkende Laufschrift */
+      white-space: nowrap; /* Entfernt Zeilenumbrüche im Text */
+      overflow: hidden; /* Versteckt den Text, der außerhalb des Eltern-Elements liegt */
+      box-sizing: border-box; /* Berechnet Breite und Höhe des Elements einschließlich Padding und Border */
+    }
+
+    /* Schlüsselbilder für die blink-Animation */
+    @keyframes blink {
+      0% { opacity: 1; } /* Text ist zu Beginn der Animation sichtbar */
+      50% { opacity: 0; } /* Text ist in der Mitte der Animation unsichtbar */
+      100% { opacity: 1; } /* Text ist am Ende der Animation wieder sichtbar */
+    }
+
+    /* Schlüsselbilder für die marquee-Animation */
+    @keyframes marquee {
+      0% { transform: translateX(100%); } /* Text beginnt außerhalb des Eltern-Elements rechts */
+      100% { transform: translateX(-100%); } /* Text endet außerhalb des Eltern-Elements links */
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Blinkende und Laufschriften</h1>
+
+  <h2>Blinkender Text</h2>
+  <p class="blinking-text">Dies ist ein blinkender Text.</p>
+
+  <h2>Laufschrift</h2>
+  <div class="marquee-text-container">
+    <p class="marquee-text">Dies ist eine Laufschrift.</p>
+  </div>
+
+  <h2>Blinkende Laufschrift</h2>
+  <div class="marquee-text-container">
+    <p class="blinking-marquee-text">Dies ist eine blinkende Laufschrift.</p>
+  </div>
+
+</body>
+</html>

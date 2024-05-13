@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--  für das Font-Awesome-Icon in der Schaltfläche mit Icon die Font-Awesome-Bibliothek benötigt -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1L_dstPt3HV5HzF6Gvk/e3s4Wz6iJgD/+ub2o" crossorigin="anonymous">
+
+  <title>Schaltflächen-Übersicht mit JavaScript</title>
+  <style>
+    /* Stile für die Schaltflächen */
+    button {
+      font-size: 16px; /* Schriftgröße für die Schaltflächen */
+      font-weight: bold; /* Schriftgewicht für die Schaltflächen */
+      padding: 10px 20px; /* Polsterung für die Schaltflächen */
+      margin: 10px; /* Rand für die Schaltflächen */
+      cursor: pointer; /* Zeigt an, dass die Schaltflächen geklickt werden können */
+    }
+
+    /* Stile für die Info-Box */
+    #infoBox {
+      padding: 10px; /* Polsterung für die Info-Box */
+      margin: 20px; /* Rand für die Info-Box */
+      border: 1px solid #ccc; /* Rahmen für die Info-Box */
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Schaltflächen-Übersicht mit JavaScript</h1>
+
+  <p>Klicke auf die folgenden Schaltflächen, um verschiedene Events auszulösen:</p>
+
+  <!-- Einfacher Button -->
+  <button id="simpleButton">Einfacher Button</button>
+
+  <!-- Button mit Hintergrundfarbe -->
+  <button id="coloredButton" style="background-color: #4CAF50; color: white;">Button mit Hintergrundfarbe</button>
+
+  <!-- Deaktivierter Button -->
+  <button id="disabledButton" disabled>Deaktivierter Button</button>
+
+  <!-- Button mit Icon -->
+  <button id="iconButton" style="background-color: #007bff; color: white;">
+    <i class="fas fa-search" style="margin-right: 5px;"></i> <!-- Font-Awesome-Icon: Sie benötigen die Font-Awesome-Bibliothek, um dieses Icon anzuzeigen. -->
+    Button mit Icon
+  </button>
+
+  <!-- Info-Box für die Ausgabe der Events -->
+  <div id="infoBox">
+    Hier werden die ausgelösten Events angezeigt.
+  </div>
+
+  <script>
+    // Fügt einen Click-Event-Listener für den einfachen Button hinzu
+    document.getElementById("simpleButton").addEventListener("click", function() {
+      document.getElementById("infoBox").innerHTML = "Einfacher Button geklickt.";
+    });
+
+    // Fügt einen Click-Event-Listener für den Button mit Hintergrundfarbe hinzu
+    document.getElementById("coloredButton").addEventListener("click", function() {
+      document.getElementById("infoBox").innerHTML = "Button mit Hintergrundfarbe geklickt.";
+    });
+
+    // Fügt einen Click-Event-Listener für den deaktivierten Button hinzu (wird nicht ausgelöst, da der Button deaktiviert ist)
+    document.getElementById("disabledButton").addEventListener("click", function() {
+      document.getElementById("infoBox").innerHTML = "Deaktivierter Button geklickt.";
+    });
+
+    // Fügt einen Click-Event-Listener für den Button mit Icon hinzu
+    document.getElementById("iconButton").addEventListener("click", function() {
+      document.getElementById("infoBox").innerHTML = "Button mit Icon geklickt.";
+    });
+  </script>
+
+</body>
+</html>

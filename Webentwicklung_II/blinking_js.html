@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blinkender und Laufschrift-Text mit JavaScript</title>
+  <style>
+    /* Stile für den blinkenden Text */
+    .blinking-text {
+      font-size: 24px; /* Schriftgröße für den blinkenden Text */
+      font-weight: bold; /* Schriftgewicht für den blinkenden Text */
+    }
+
+    /* Stile für die Laufschrift */
+    .marquee-text {
+      font-size: 24px; /* Schriftgröße für die Laufschrift */
+      font-weight: bold; /* Schriftgewicht für die Laufschrift */
+      white-space: nowrap; /* Entfernt Zeilenumbrüche im Text */
+      overflow: hidden; /* Versteckt den Text, der außerhalb des Eltern-Elements liegt */
+      box-sizing: border-box; /* Berechnet Breite und Höhe des Elements einschließlich Padding und Border */
+    }
+
+    /* Stile für die blinkende Laufschrift */
+    .blinking-marquee-text {
+      font-size: 24px; /* Schriftgröße für die blinkende Laufschrift */
+      font-weight: bold; /* Schriftgewicht für die blinkende Laufschrift */
+      white-space: nowrap; /* Entfernt Zeilenumbrüche im Text */
+      overflow: hidden; /* Versteckt den Text, der außerhalb des Eltern-Elements liegt */
+      box-sizing: border-box; /* Berechnet Breite und Höhe des Elements einschließlich Padding und Border */
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Blinkender und Laufschrift-Text mit JavaScript</h1>
+
+  <h2>Blinkender Text</h2>
+  <p class="blinking-text" id="blinkingText">Dies ist ein blinkender Text.</p>
+
+  <h2>Laufschrift</h2>
+  <div class="marquee-text-container">
+    <p class="marquee-text" id="marqueeText">Dies ist eine Laufschrift.</p>
+  </div>
+
+  <h2>Blinkende Laufschrift</h2>
+  <div class="marquee-text-container">
+    <p class="blinking-marquee-text" id="blinkingMarqueeText">Dies ist eine blinkende Laufschrift.</p>
+  </div>
+
+  <script>
+    // Funktion zum Umschalten der Sichtbarkeit des Textes
+    function toggleVisibility() {
+      var blinkingTextElement = document.getElementById("blinkingText"); // Holt das Element mit der ID "blinkingText"
+      var blinkingMarqueeTextElement = document.getElementById("blinkingMarqueeText"); // Holt das Element mit der ID "blinkingMarqueeText"
+
+      if (blinkingTextElement.style.visibility === "hidden") { // Wenn der Text unsichtbar ist
+        blinkingTextElement.style.visibility = "visible"; // Macht den Text sichtbar
+        blinkingMarqueeTextElement.style.visibility = "visible"; // Macht den blinkenden Laufschrift-Text sichtbar
+      } else { // Wenn der Text sichtbar ist
+        blinkingTextElement.style.visibility = "hidden"; // Macht den Text unsichtbar
+        blinkingMarqueeTextElement.style.visibility = "hidden"; // Macht den blinkenden Laufschrift-Text unsichtbar
+      }
+    }
+
+    // Ruft die Funktion toggleVisibility alle 500 Millisekunden auf, um den blinkenden Effekt zu erzeugen
+    setInterval(toggleVisibility, 500);
+
+    // Funktion zum Verschieben des Laufschrift-Textes
+    function scrollMarqueeText() {
+      var marqueeTextElement = document.getElementById("marqueeText"); // Holt das Element mit der ID "marqueeText"
+      var blinkingMarqueeTextElement = document.getElementById("blinkingMarqueeText"); // Holt das Element mit der ID "blinkingMarqueeText"
+
+      // Setzt den Anfangswert für die Transformation
+      if (!marqueeTextElement.style.transform) {
+        marqueeTextElement.style.transform = "translateX(100%)";
+        blinkingMarqueeTextElement.style.transform = "translateX(100%)";
+      }
+
+      // Verschiebt den Text um 1 Pixel nach links
+      marqueeTextElement.style.transform = "translateX(" + (parseInt(marqueeTextElement.style.transform.split("(")[1]) - 1) + "px)";
+      blinkingMarqueeTextElement.style.transform = "translateX(" + (parseInt(blinkingMarqueeTextElement.style.transform.split("(")[1]) - 1) + "px)";
+
+      // Wenn der Text außerhalb des Eltern-Elements liegt, setzt ihn zurück an den Anfang
+      if (parseInt(marqueeTextElement.style.transform.split("(")[1]) < -marqueeTextElement.scrollWidth) {
+        marqueeTextElement.style.transform = "translateX(100%)";
+      }
+      if (parseInt(blinkingMarqueeTextElement.style.transform.split("(")[1]) < -blinkingMarqueeTextElement.scrollWidth) {
+        blinkingMarqueeTextElement.style.transform = "translateX(100%)";
+      }
+    }
+
+    // Ruft die Funktion scrollMarqueeText alle 20 Millisekunden auf, um den Laufschrift-Effekt zu erzeugen
+    setInterval(scrollMarqueeText, 20);
+  </script>
+
+</body>
+</html>

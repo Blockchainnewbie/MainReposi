@@ -1,0 +1,95 @@
+<!DOCTYPE html> <!-- Dokumenttyp-Deklaration, die die verwendete HTML-Version angibt -->
+<html lang="de"> <!-- Öffnendes html-Tag mit Angabe der Sprache (deutsch) -->
+
+<head> <!-- Kopf der Webseite, der Metadaten und verknüpfte Ressourcen enthält -->
+  <meta charset="UTF-8"> <!-- Zeichenkodierung der Webseite (UTF-8) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Anpassung der Webseite an verschiedene Bildschirmgrößen -->
+  <title>Tags Übersicht</title> <!-- Titel der Webseite, der in der Browser-Tab-Leiste angezeigt wird -->
+  <link rel="stylesheet" href="css/styles.css"> <!-- Verknüpfung einer externen CSS-Datei -->
+  <style>
+    /* Optional: Eingebettete CSS-Regeln, die nur für diese HTML-Datei gelten */
+  
+    body {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  
+    h1 {
+      color: rgb(243, 5, 223);
+    }
+  </style>
+  
+  
+</head>
+
+<body> <!-- Körper der Webseite, der den sichtbaren Inhalt enthält -->
+
+  <header> <!-- Kopfzeile der Webseite, die üblicherweise das Logo und die Navigation enthält -->
+    <hgroup> <!-- Gruppierung von Überschriften (h1-h6), wird in HTML5.2 nicht mehr unterstützt -->
+      <h1>Willkommen</h1> <!-- Überschrift erster Ordnung -->
+      <h2>auf meiner Webseite!</h2> <!-- Überschrift zweiter Ordnung -->
+    </hgroup>
+    <nav> <!-- Navigationsbereich der Webseite -->
+      <ul> <!-- Unsortierte Liste -->
+        <li><a href="#">Startseite</a></li> <!-- Liste mit einem Hyperlink -->
+        <li><a href="#">Über uns</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main> <!-- Hauptinhalt der Webseite -->
+    <section> <!-- Abschnitt, der thematisch zusammengehörige Inhalte gruppiert -->
+      <article> <!-- Unabhängiger, selbstständiger Inhalt, z.B. ein Blog-Artikel oder eine Nachricht -->
+        <header>
+          <h1>Thema 1</h1>
+        </header>
+        <p>Hier findest du Informationen zum ersten Thema. Viel Spaß beim Lesen!</p>
+        <footer> <!-- Fußzeile eines Artikels oder Abschnitts, die Metadaten wie Autor oder Datum enthält -->
+          <p>Veröffentlicht am: 01.01.2023</p>
+        </footer>
+      </article>
+      <article>
+        <header>
+          <h1>Thema 2</h1>
+        </header>
+        <p>Hier findest du Informationen zum zweiten Thema. Viel Spaß beim Lesen!</p>
+        <footer>
+          <p>Veröffentlicht am: 02.01.2023</p>
+        </footer>
+      </article>
+    </section>
+
+    <aside> <!-- Nebenbereich der Webseite, der zusätzliche Informationen oder Funktionen enthält -->
+      <h1>Neuigkeiten</h1>
+      <p>Hier findest du die neuesten Nachrichten und Updates.</p>
+    </aside>
+
+    <section>
+      <h1>Bildergalerie</h1>
+      <figure> <!-- Gruppierung von einem Bild und einer Bildunterschrift -->
+        <img src="img/bild1.jpg" alt="Beschreibung des Bildes 1"> <!-- Bild-Tag mit Pfad zur Bilddatei und Alternativtext -->
+        <figcaption>Bildunterschrift 1</figcaption> <!-- Bildunterschrift -->
+      </figure>
+      <figure>
+        <img src="img/bild2.jpg" alt="Beschreibung des Bildes 2">
+        <figcaption>Bildunterschrift 2</figcaption>
+      </figure>
+      <figure>
+        <img src="img/bild3.jpg" alt="Beschreibung des Bildes 3">
+        <figcaption>Bildunterschrift 3</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer> <!-- Fußzeile der Webseite, die üblicherweise Copyright-Hinweise und Kontaktinformationen enthält -->
+    <p>Copyright © 2023 Meine Webseite. Alle Rechte vorbehalten.</p>
+  </footer>
+
+  <script src="js/scripts.js"></script> <!-- Verknüpfung einer externen JavaScript-Datei -->
+  <script> <!-- Optional: Eingebettete JavaScript-Funktionen, die nur für diese HTML-Datei gelten -->
+    /* Hier können JavaScript-Funktionen eingefügt werden */
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+/* 1. Höhe und Breite */
+.box {
+  width: 200px; /* Breite des Elements */
+  height: 100px; /* Höhe des Elements */
+  min-width: 150px; /* Minimale Breite des Elements */
+  min-height: 75px; /* Minimale Höhe des Elements */
+  max-width: 250px; /* Maximale Breite des Elements */
+  max-height: 125px; /* Maximale Höhe des Elements */
+  background-color: #f4f4f4; /* Hintergrundfarbe des Elements */
+  margin: 10px; /* Außenabstand des Elements */
+}
+
+/* 2. Abstände und Ausrichtung */
+body {
+  margin: 0; /* Entfernt den Außenabstand des Körpers */
+  padding: 20px; /* Innenabstand des Körpers */
+  font-family: Arial, sans-serif; /* Schriftart des Körpers */
+}
+
+header {
+  background-color: #333; /* Hintergrundfarbe des Headers */
+  color: #fff; /* Textfarbe des Headers */
+  text-align: center; /* Horizontale Ausrichtung des Textes im Header */
+  padding: 10px; /* Innenabstand des Headers */
+}
+
+nav ul {
+  list-style-type: none; /* Entfernt die Aufzählungspunkte der Liste */
+  padding: 0; /* Entfernt den Innenabstand der Liste */
+}
+
+nav ul li {
+  display: inline; /* Ändert die Anzeige der Listenelemente in Inline */
+  margin: 0 10px; /* Außenabstand der Listenelemente */
+}
+
+main {
+  display: flex; /* Ändert die Anzeige des Hauptcontainers in Flexbox */
+  justify-content: space-between; /* Verteilt die Elemente gleichmäßig mit gleichem Abstand zwischen ihnen */
+}
+
+aside {
+  width: 25%; /* Breite des Seitenelements */
+  background-color: #f4f4f4; /* Hintergrundfarbe des Seitenelements */
+  padding: 10px; /* Innenabstand des Seitenelements */
+}
+
+figure figure img {
+  float: left; /* Verschiebt das Bild nach links */
+  margin: 0 10px 10px 0; /* Außenabstand des Bildes */
+}
+
+footer {
+  clear: both; /* Entfernt nachfolgende Elemente aus der linken und rechten Seite des Fußzeilenelements */
+  background-color: #02f8bb; /* Hintergrundfarbe des Fußzeilenelements */
+  color: #ff03d5; /* Textfarbe des Fußzeilenelements */
+  text-align: center; /* Horizontale Ausrichtung des Textes im Fußzeilenelement */
+  padding: 10px; /* Innenabstand des Fußzeilenelements */
+}
+
+
+/* 3. Schriftarten und Schriftgrößen */
+h1, h2 {
+  font-weight: bold; /* Strichstärke der Überschriften */
+}
+
+h1 {
+  font-size: 2em; /* Schriftgröße der Überschrift 1 */
+}
+
+h2 {
+  font-size: 1.5em; /* Schriftgröße der Überschrift 2 */
+}
+
+p {
+  line-height: 1.5; /* Zeilenhöhe des Absatzes */
+  letter-spacing: 0.5px; /* Buchstabenabstand des Textes */
+  word-spacing: 1px; /* Wortabstand des Textes */
+}
+
+a {
+  text-decoration: none; /* Entfernt die Unterstreichung von Links */
+  color: #333; /* Textfarbe von Links */
+}
+
+a:hover {
+  text-decoration: underline; /* Fügt beim Hovern eine Unterstreichung hinzu */
+}
+
+/* 4. Farben und Hintergründe */
+body {
+  background-color: #fff; /* Hintergrundfarbe des Körpers */
+  color: #333; /* Textfarbe des Körpers */
+}
+
+nav ul li a:hover {
+  background-color: #333; /* Hintergrundfarbe der Listenelemente beim Hovern */
+  color: #fff; /* Textfarbe der Listenelemente beim Hovern */
+}
+
+.box-red {
+  background-color: red; /* Hintergrundfarbe des roten Kastens */
+}
+
+.box-green {
+  background-color: green; /* Hintergrundfarbe des grünen Kastens */
+}
+
+.box-blue {
+  background-color: blue; /* Hintergrundfarbe des blauen Kastens */
+}
+
+.half-transparent {
+  opacity: 0.5; /* Transparenz des Elements */
+}
+
+.hidden {
+  visibility: hidden; /* Versteckt das Element */
+}

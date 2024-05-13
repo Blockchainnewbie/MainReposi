@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Div Container Beispiel</title>
+  <style>
+    /* Grundlegende Stile für die gesamte Webseite */
+    body {
+      font-family: Arial, sans-serif; /* Schriftart für den gesamten Text */
+      margin: 0; /* Entfernt den Standard-Rand um die Webseite herum */
+      padding: 0; /* Entfernt die Standard-Polsterung um die Webseite herum */
+    }
+
+    /* Stile für den übergeordneten Container, der den Inhalt zentriert und mit einer maximalen Breite anzeigt */
+    .container {
+      width: 80%; /* Breite des Containers, relativ zur Breite des Eltern-Elements (in diesem Fall das body-Element) */
+      max-width: 1200px; /* Maximale Breite des Containers, um sicherzustellen, dass er nicht breiter als 1200 Pixel wird */
+      margin: 0 auto; /* Zentriert den Container horizontal, indem automatische Ränder links und rechts hinzugefügt werden */
+    }
+
+    /* Stile für den Kopfzeilenbereich */
+    header {
+      background-color: #333; /* Hintergrundfarbe für den Kopfzeilenbereich */
+      color: #fff; /* Textfarbe für den Kopfzeilenbereich */
+      text-align: center; /* Zentriert den Text horizontal im Kopfzeilenbereich */
+      padding: 20px 0; /* Fügt Polsterung oben und unten hinzu, aber nicht links und rechts */
+    }
+
+    /* Stile für die Navigationsleiste */
+    nav {
+      background-color: #555; /* Hintergrundfarbe für die Navigationsleiste */
+      color: #fff; /* Textfarbe für die Navigationsleiste */
+      padding: 10px 0; /* Fügt Polsterung oben und unten hinzu, aber nicht links und rechts */
+    }
+
+    /* Stile für die Liste der Navigationselemente */
+    nav ul {
+      list-style-type: none; /* Entfernt die Aufzählungspunkte von der Liste */
+      padding: 0; /* Entfernt die Standard-Polsterung um die Liste herum */
+      margin: 0; /* Entfernt den Standard-Rand um die Liste herum */
+      display: flex; /* Verwendet Flexbox, um die Listenelemente nebeneinander anzuordnen */
+      justify-content: space-around; /* Verteilt die Listenelemente gleichmäßig im verfügbaren Platz */
+    }
+
+    /* Stile für die Links in der Navigationsleiste */
+    nav ul li a {
+      color: #fff; /* Textfarbe für die Links */
+      text-decoration: none; /* Entfernt die Unterstreichung der Links */
+      padding: 5px; /* Fügt Polsterung um die Links herum hinzu */
+    }
+
+    /* Stile für die Links in der Navigationsleiste, wenn der Benutzer mit der Maus darüber fährt */
+    nav ul li a:hover {
+      background-color: #777; /* Hintergrundfarbe für die Links, wenn der Benutzer mit der Maus darüber fährt */
+    }
+
+    /* Stile für den Hauptinhaltsbereich */
+    main {
+      display: flex; /* Verwendet Flexbox, um die untergeordneten Elemente nebeneinander anzuordnen */
+      justify-content: space-between; /* Verteilt den verfügbaren Platz gleichmäßig zwischen den untergeordneten Elementen */
+      padding: 20px 0; /* Fügt Polsterung oben und unten hinzu, aber nicht links und rechts */
+    }
+
+    /* Stile für den Hauptinhaltsbereich */
+    .main-content {
+      width: 70%; /* Breite des Hauptinhaltsbereichs, relativ zur Breite des Eltern-Elements (in diesem Fall das main-Element) */
+    }
+
+    /* Stile für die Seitenleiste */
+    .sidebar {
+      width: 30%; /* Breite der Seitenleiste, relativ zur Breite des Eltern-Elements (in diesem Fall das main-Element) */
+      background-color: #f5f5f5; /* Hintergrundfarbe für die Seitenleiste */
+      padding: 10px; /* Fügt Polsterung um die Seitenleiste herum hinzu */
+    </style>
+    }
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Div Container Beispiel</h1>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#">Startseite</a></li>
+        <li><a href="#">Über uns</a></li>
+        <li><a href="#">Dienstleistungen</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <div class="main-content">
+        <h2>Hauptinhalt</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget lacus vitae nisl interdum aliquet. Suspendisse potenti. Donec non lorem in eros auctor commodo in ut nulla. Pellentesque consequat nisi in nisl ullamcorper tincidunt. Donec bibendum, nulla eget bibendum consectetur, arcu nisi aliquam nisl, ut aliquam nibh nisi eget nisl.</p>
+      </div>
+
+      <div class="sidebar">
+        <h3>Sidebar</h3>
+        <ul>
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+        </ul>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Div Container Beispiel</p>
+    </footer>
+  </div>
+
+</body>
+</html>
