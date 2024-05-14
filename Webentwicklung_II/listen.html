@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beispiele für Listen und Auflistungen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .comment {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Beispiele für Listen und Auflistungen</h1>
+
+    <h2>Unsortierte Liste (ul)</h2>
+    <p class="comment">Unsortierte Liste mit der Verwendung des ul-Tags</p>
+    <ul>
+        <li>Eintrag 1</li>
+        <li>Eintrag 2</li>
+        <li>Eintrag 3</li>
+    </ul>
+
+    <h2>Sortierte Liste (ol)</h2>
+    <p class="comment">Sortierte Liste mit der Verwendung des ol-Tags</p>
+    <ol>
+        <li>Erster Schritt</li>
+        <li>Zweiter Schritt</li>
+        <li>Dritter Schritt</li>
+    </ol>
+
+    <h2>Beschreibungsliste (dl)</h2>
+    <p class="comment">Beschreibungsliste mit der Verwendung des dl-Tags, dt-Tags für Begriffe und dd-Tags für Beschreibungen</p>
+    <dl>
+        <dt>HTML</dt>
+        <dd>HyperText Markup Language</dd>
+        <dt>CSS</dt>
+        <dd>Cascading Style Sheets</dd>
+        <dt>PHP</dt>
+        <dd>Hypertext Preprocessor</dd>
+    </dl>
+
+    <h2>Nesting von Listen</h2>
+    <p class="comment">Nesting von Listen: unsortierte Liste mit einer untergeordneten unsortierten Liste und einer untergeordneten sortierten Liste</p>
+    <ul>
+        <li>Gemüse
+            <ul>
+                <li>Karotten</li>
+                <li>Brokkoli</li>
+                <li>Tomaten</li>
+            </ul>
+        </li>
+        <li>Obst
+            <ol>
+                <li>Äpfel</li>
+                <li>Bananen</li>
+                <li>Orangen</li>
+            </ol>
+        </li>
+    </ul>
+
+</body>
+</html>

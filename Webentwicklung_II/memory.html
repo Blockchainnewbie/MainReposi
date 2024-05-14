@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Memory Spiel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .memory-game {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-gap: 10px;
+        }
+        .card {
+    background-color: black;
+    color: #fff;
+    font-size: 2em;
+    text-align: center;
+    line-height: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 5px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+        .card.matched {
+            background-color: green;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .control-button {
+            background-color: #000;
+            color: #fff;
+            font-size: 1em;
+            text-align: center;
+            line-height: 30px;
+            height: 30px;
+            cursor: pointer;
+            border-radius: 5px;
+            padding: 0 10px;
+            margin: 0 5px;
+        }
+
+        .flipped {
+    transform: rotateY(180deg);
+}
+    </style>
+</head>
+<body>
+
+    <div class="memory-game">
+        <!-- Karten werden hier dynamisch mit JavaScript erstellt -->
+    </div>
+
+    <div class="controls">
+        <button class="control-button start-button">Start</button>
+        <button class="control-button stop-button" disabled>Ende</button>
+        <button class="control-button reshuffle-button" disabled>Neumischen</button>
+    </div>
+
+    <script>
+        // Liste mit 12 ASCII-Symbolen
+        const symbols = ['♥', '♦', '♣', '♠', '★', '☆', '✓', '✕', '☀', '☁', '☺', '☻'];
+
+        // Memory-Spiel-Container auswählen
+        const memoryGame = document.querySelector('.memory-game');
+
+        // Schaltflächen auswählen
+        const startButton = document.querySelector('.start-button');
+        const stopButton = document.querySelector('.stop-button');
+        const reshuffleButton = document.querySelector('.reshuffle-button');
+
+        // Karten-Array erstellen
+        let cards = [];
+
+        function createCards() {
+            // Karten entfernen, falls vorhanden
+            while (memoryGame.firstChild) {
+                memoryGame.removeChild(memoryGame.firstChild);
+            }
+
+            // Karten erstellen und hinzufügen
+            for (let i = 0; i < 24; i++) {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                const symbol = symbols[i % symbols.length]; // Assign symbol to the card
+                card.textContent = symbol; // Set the symbol as the card's text content
+                memoryGame.appendChild(card);
+                cards.push(card);
+            }
+        }
+
+        // Karten mischen
+        function shuffleCards() {
+            for (let i = cards.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [cards[i], cards[j]] = [cards[j], cards[i]];
+            }
+        }
+
+        // Symbol den Karten zuweisen und Karten umdrehen
+        let selectedCards = [];
+        let selectedSymbols = [];
+
+        function handleCardClick(event) {
+    const clickedCard = event.target;
+
+    // Check if the clicked card is already matched or already flipped
+    if (clickedCard.classList.contains('matched') || clickedCard.classList.contains('flipped')) {
+        return;
+    }
+
+    clickedCard.classList.add('flipped');
+    const index = cards.indexOf(clickedCard);
+    const symbol = symbols[index % symbols.length];
+    clickedCard.textContent = symbol;
+
+    selectedCards.push(clickedCard);
+    selectedSymbols.push(symbol);
+
+    // If two cards are selected, check for a match
+    if (selectedCards.length === 2) {
+        if (selectedSymbols[0] === selectedSymbols[1]) {
+            selectedCards[0].classList.add('matched');
+            selectedCards[1].classList.add('matched');
+        } else {
+            // If the cards don't match, flip them back after a short delay
+            setTimeout(() => {
+                selectedCards[0].classList.remove('flipped');
+                selectedCards[1].classList.remove('flipped');
+                selectedCards[0].textContent = '';
+                selectedCards[1].textContent = '';
+            }, 1000);
+        }
+        selectedCards = [];
+        selectedSymbols = [];
+    }
+}
+
+        // Klick-Event-Listener für jede Karte hinzufügen
+        function addCardListeners() {
+            for (const card of cards) {
+                card.addEventListener('click', handleCardClick);
+            }
+        }
+
+
+        // Klick-Event-Listener für Schaltflächen hinzufügen
+        startButton.addEventListener('click', () => {
+            createCards();
+            shuffleCards();
+            selectedCards = [];
+            selectedSymbols = [];
+            addCardListeners();
+            stopButton.disabled = false;
+            reshuffleButton.disabled = false;
+        });
+
+        stopButton.addEventListener('click', () => {
+            for (const card of cards) {
+                card.removeEventListener('click', handleCardClick);
+            }
+            stopButton.disabled = true;
+            reshuffleButton.disabled = true;
+        });
+
+        reshuffleButton.addEventListener('click', () => {
+            shuffleCards();
+            selectedCards = [];
+            selectedSymbols = [];
+            for (const card of cards) {
+                card.textContent = '';
+                card.classList.remove('matched');
+            }
+        });
+    </script>
+</body>
+</html>

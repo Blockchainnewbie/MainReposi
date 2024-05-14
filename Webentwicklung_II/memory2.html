@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Cards</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .card {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            backface-visibility: hidden;
+        }
+
+        .card-front {
+            background-color: var(--front-color);
+        }
+
+        .card-back {
+            background-color: #000;
+            transform: rotateY(180deg);
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: red;"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: red;"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: rgb(0, 255, 221);"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: rgb(0, 255, 221);"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: rgb(0, 119, 255);"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: rgb(0, 119, 255);"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: green;"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: green;"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: yellow;"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: yellow;"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: purple;"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: purple;"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: rgb(255, 0, 212);"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color:  rgb(255, 0, 212);"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: rgb(0, 255, 170);"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: rgb(0, 255, 170);"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: rgb(187, 255, 0);"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: rgb(187, 255, 0);"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: rgb(98, 0, 255);"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: rgb(98, 0, 255);"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: rgb(116, 91, 91);"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: rgb(116, 91, 91);"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: rgb(94, 255, 0);"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: rgb(94, 255, 0);"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: rgb(165, 44, 135);"></div>
+            <div class="card-back"></div>
+        </div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front" style="--front-color: rgb(165, 44, 135);"></div>
+            <div class="card-back"></div>
+        </div>
+        
+    </div>
+
+    <script>
+        function shuffleCards() {
+          const cardContainer = document.querySelector('.card-container');
+          const cards = Array.from(cardContainer.querySelectorAll('.card'));
+
+          for (let i = cards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [cards[i], cards[j]] = [cards[j], cards[i]];
+          }
+
+          // Entferne alle Karten aus dem Container
+          cards.forEach((card) => {
+            cardContainer.removeChild(card);
+          });
+
+          // Füge die gemischten Karten wieder in den Container ein
+          cards.forEach((card) => {
+            cardContainer.appendChild(card);
+          });
+        }
+
+        // Mische die Karten, wenn die Seite geladen wird
+        window.addEventListener('load', shuffleCards);
+    </script>
+
+</body>
+</html>
