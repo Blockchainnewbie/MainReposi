@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tabellen Beispiele</title>
+  <style>
+    /* Fügen Sie diese CSS-Regeln hinzu */
+    .table td:not([style]) { /* Wählen Sie nur die Zellen ohne inline-Stil aus, um die gestreiften Tabellen nicht zu beeinflussen */
+      transition: background-color 0.3s ease; /* Fügen Sie eine Übergangsanimation hinzu */
+    }
+    .table td:not([style]):hover {
+      background-color: #fd0b0b; /* Ändern Sie die Hintergrundfarbe bei Mouseover */
+    }
+  </style>
   <link rel="stylesheet" href="css\tables.css">
 </head>
 <body>

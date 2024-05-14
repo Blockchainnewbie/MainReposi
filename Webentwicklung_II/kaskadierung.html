@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaskadierung in CSS</title>
+  <!-- Externer Stil -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Interner Stil */
+        /* Externe Stile */
+    .example {
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+    }
+    h1 {
+    color: green;
+    }
+        body {
+        font-size: 18px;
+        line-height: 1.5;
+        }
+        h1 {
+        color: blue;
+        }
+    </style>
+</head>
+<body>
+
+  <h1>Kaskadierung in CSS</h1>
+
+  <p class="example">Dies ist ein Absatz mit einer inline-, internen und externen Stilregel.</p>
+
+  <!-- Inline-Stil -->
+  <p class="example" style="font-weight: bold; color: red;">Dies ist ein Absatz mit einem inline-Stil.</p>
+
+  <p>In CSS hat die Kaskadierung Prioritäten, wobei inline-Stile die höchste Priorität haben, gefolgt von internen und externen Stilen.
+    In diesem Beispiel werden drei Arten von CSS-Stilen verwendet, um die Kaskadierung zu veranschaulichen:
+
+    Inline-Stile: Diese Stile werden direkt im HTML-Element mit dem style-Attribut definiert. Inline-Stile haben die höchste Priorität und überschreiben interne und externe Stile.
+    Interne Stile: Diese Stile werden im style-Tag innerhalb des head-Elements der HTML-Datei definiert. Interne Stile haben eine niedrigere Priorität als inline-Stile, aber eine höhere Priorität als externe Stile.
+    Externe Stile: Diese Stile werden in einer separaten CSS-Datei definiert und mit dem link-Tag in der HTML-Datei verknüpft. Externe Stile haben die niedrigste Priorität und werden von inline- und internen Stilen überschrieben.
+
+In diesem Beispiel wird ein Absatz mit Klasse example verwendet, um die Kaskadierung zu demonstrieren. Die Klasse example hat eine externe Stilregel, die ihr einen schwarzen Rahmen, Polsterung und einen unteren Rand hinzufügt. Der erste Absatz hat zusätzlich eine interne Stilregel, die die Schriftgröße und Zeilenhöhe des <body>-Elements festlegt, sowie eine inline-Stilregel, die die Schriftfarbe und -gewicht ändert. Der zweite Absatz hat nur eine inline-Stilregel, die die Schriftfarbe und -gewicht ändert.
+
+Die h1-Überschrift hat sowohl eine interne als auch eine externe Stilregel, die die Schriftfarbe ändert. In diesem Fall hat die interne Stilregel Vorrang vor der externen Stilregel, da sie näher am Element definiert ist.
+  </p>
+
+</body>
+</html>

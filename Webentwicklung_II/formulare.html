@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formular-Beispiel</title>
+  <style>
+    /* Einige grundlegende Stile für das Formular */
+    form {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 15px;
+    }
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+     /* Stile für den Titel */
+     h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Formular-Beispiel</h1>
+
+  <!-- Das Formular beginnt hier -->
+  <form action="/submit_form" method="post">
+    <!--
+      Das `action`-Attribut gibt die URL an, an die die Formulardaten gesendet werden sollen, wenn das Formular abgeschickt wird.
+      Das `method`-Attribut gibt die HTTP-Methode an, die beim Senden der Formulardaten verwendet werden soll (normalerweise "post" oder "get").
+    -->
+
+    <!-- Ein Textfeld für den Namen -->
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <!--
+      Das `label`-Element verknüpft eine Beschriftung mit einem Formularelement. Das `for`-Attribut sollte mit dem `id`-Attribut des entsprechenden Formularelements übereinstimmen.
+      Das `input`-Element vom Typ "text" erstellt ein einzeiliges Textfeld.
+      Das `name`-Attribut ist erforderlich, um den Namen des Formularelements anzugeben, der zusammen mit dem Wert des Elements an den Server gesendet wird.
+      Das `required`-Attribut macht das Feld zu einem Pflichtfeld, das ausgefüllt werden muss, bevor das Formular abgeschickt werden kann.
+    -->
+
+    <!-- Ein Textfeld für die E-Mail-Adresse -->
+    <label for="email">E-Mail:</label>
+    <input type="email" id="email" name="email" required>
+    <!--
+      Das `input`-Element vom Typ "email" erstellt ein einzeiliges Textfeld für E-Mail-Adressen und bietet eine grundlegende E-Mail-Validierung.
+    -->
+
+    <!-- Ein Passwortfeld -->
+    <label for="password">Passwort:</label>
+    <input type="password" id="password" name="password" required>
+    <!--
+      Das `input`-Element vom Typ "password" erstellt ein einzeiliges Textfeld, in dem die Eingabe als Punkte oder Sterne maskiert wird.
+    -->
+
+    <!-- Eine Absende-Schaltfläche -->
+    <input type="submit" value="Absenden">
+    <!--
+      Das `input`-Element vom Typ "submit" erstellt eine Schaltfläche, die das Formular absenden kann.
+      Das `value`-Attribut gibt den Text auf der Schaltfläche an.
+    -->
+  </form>
+  <!-- Das Formular endet hier -->
+
+</body>
+</html>

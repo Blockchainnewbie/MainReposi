@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ampel mit JavaScript und Timer</title>
+  <style>
+    /* Stile für die Ampel */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.5; /* Fügt einen gleichmäßigen Zeilenabstand hinzu */
+    }
+    #ampel {
+      display: inline-block;
+      background-color: #333;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    .licht {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin: 5px auto;
+      transition: background-color 0.5s;
+    }
+    .rot {
+      background-color: #660000; /* Dunkelrot, um ausgeschalteten Zustand darzustellen */
+    }
+    .gelb {
+      background-color: #888; /* Grau, um ausgeschalteten Zustand darzustellen */
+    }
+    .gruen {
+      background-color: #006600; /* Dunkelgrün, um ausgeschalteten Zustand darzustellen */
+    }
+    .aktiv {
+      background-color: #ff0000; /* Rot */
+    }
+    .aktiv.gelb {
+      background-color: #ffdd00; /* Gelb */
+    }
+    .aktiv.gruen {
+      background-color: #00ff00; /* Grün */
+    }
+    /* Stile für den Titel */
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    /* Stile für die Eingabefelder, Labels und den Button */
+    input[type="number"] {
+      width: 60px;
+      margin-right: 10px;
+    }
+    label {
+      margin-bottom: 10px; /* Fügt einen unteren Rand von 10 Pixeln hinzu */
+      margin-top: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ampel mit JavaScript und Timer</h1>
+
+  <!-- Container für Ampel, Eingabefelder und Buttons -->
+  <div class="container">
+    <!-- Ampel-Elemente -->
+    <div id="ampel">
+      <div id="rot" class="licht rot"></div>
+      <div id="gelb" class="licht gelb"></div>
+      <div id="gruen" class="licht gruen"></div>
+    </div>
+
+    <!-- Eingabefelder für die Zeiten der Phasen -->
+    <label for="rotZeit">Rot-Zeit (Sekunden):</label>
+    <input type="number" id="rotZeit" value="10" min="1">
+    <label for="gelbZeit">Gelb-Zeit (Sekunden):</label>
+    <input type="number" id="gelbZeit" value="2" min="1">
+    <label for="gruenZeit">Grün-Zeit (Sekunden):</label>
+    <input type="number" id="gruenZeit" value="15" min="1">
+
+    <!-- Buttons zum Starten und Stoppen des Timers -->
+    <button id="startTimer">Timer starten</button>
+    <button id="stopTimer" disabled>Timer stoppen</button>
+  </div>
+
+  <script>
+    // Variable für die aktuelle Ampel-Phase
+    let ampelPhase = 0;
+    let timerInterval;
+
+    // Funktion zum Wechseln der Ampel-Phase
+    function naechstePhase() {
+      // Array mit den Ampel-Phasen (Klassen für die aktiven Lichter)
+      const phases = ['rot', 'gelbRot', 'gruen', 'gelb'];
+
+      // Aktualisiere die Ampel-Phase
+      ampelPhase = (ampelPhase + 1) % phases.length;
+
+      // Setze die Klassen für die Ampel-Lichter
+      document.getElementById('rot').className = 'licht rot ' + (phases[ampelPhase] === 'rot' || phases[ampelPhase] === 'gelbRot' ? 'aktiv' : '');
+      document.getElementById('gelb').className = 'licht gelb ' + (phases[ampelPhase] === 'gelb' || phases[ampelPhase] === 'gelbRot' ? 'aktiv' : '');
+      document.getElementById('gruen').className = 'licht gruen ' + (phases[ampelPhase] === 'gruen' ? 'aktiv' : '');
+    }
+
+    // Funktion zum Starten des Timers
+    function startTimer() {
+      // Hole die Zeiten für die Phasen aus den Eingabefeldern
+      const rotZeit = parseInt(document.getElementById('rotZeit').value) * 1000;
+      const gelbZeit = parseInt(document.getElementById('gelbZeit').value) * 1000;
+      const gruenZeit = parseInt(document.getElementById('gruenZeit').value) * 1000;
+
+      // Array mit den Zeiten für die Phasen
+      const phaseTimes = [rotZeit, gelbZeit, gruenZeit, gelbZeit];
+
+      // Funktion zum Wechseln der Ampel-Phase nach Ablauf der Zeit
+      function wechselPhase() {
+        naechstePhase();
+        timerInterval = setTimeout(wechselPhase, phaseTimes[ampelPhase]);
+      }
+
+      // Setze den Timer-Interval
+      timerInterval = setTimeout(wechselPhase, phaseTimes[ampelPhase]);
+
+      // Deaktiviere den Start-Button, um zu verhindern, dass mehrere Timer gleichzeitig laufen
+      document.getElementById('startTimer').disabled = true;
+      document.getElementById('stopTimer').disabled = false;
+    }
+
+    // Funktion zum Stoppen des Timers
+    function stopTimer() {
+      clearTimeout(timerInterval);
+      ampelPhase = 0;
+      naechstePhase();
+      document.getElementById('startTimer').disabled = false;
+      document.getElementById('stopTimer').disabled = true;
+    }
+
+    // Füge dem Button ein Click-Event hinzu, um den Timer zu starten
+    document.getElementById('startTimer').addEventListener('click', startTimer);
+    document.getElementById('stopTimer').addEventListener('click', stopTimer);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Addieren von Zahlen</title>
+  <style>
+    /* Einige grundlegende Stile für das Formular */
+    form {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"], input[type="button"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+    input[type="button"] {
+      background-color: #007bff;
+      color: #fff;
+      font-size: 16px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+    input[type="button"]:hover {
+      background-color: #0056b3;
+    }
+    #result {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+      margin-top: 15px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Addieren von Zahlen</h1>
+
+  <!-- Das Formular beginnt hier -->
+  <form>
+    <!-- Ein Texteingabefeld für die erste Zahl -->
+    <label for="number1">Erste Zahl:</label>
+    <input type="text" id="number1" name="number1" required>
+
+    <!-- Ein Texteingabefeld für die zweite Zahl -->
+    <label for="number2">Zweite Zahl:</label>
+    <input type="text" id="number2" name="number2" required>
+
+    <!-- Ein Button, der die Eingaben addiert -->
+    <input type="button" value="Addieren" onclick="addNumbers()">
+
+    <!-- Ein Ausgabefeld für das Ergebnis -->
+    <input type="text" id="result" readonly>
+  </form>
+  <!-- Das Formular endet hier -->
+
+  <script>
+    // Funktion zum Addieren der Eingaben und Anzeigen des Ergebnisses
+    function addNumbers() {
+      // Holen Sie die Werte der Texteingabefelder
+      var number1 = document.getElementById('number1').value.replace(',', '.'); // Die replace()-Methode wird verwendet, um alle Kommas in den Eingabewerten durch Punkte zu ersetzen, da JavaScript Punkte als Dezimaltrennzeichen verwendet.
+      var number2 = document.getElementById('number2').value.replace(',', '.');
+
+      // Überprüfen Sie, ob beide Werte gültige Zahlen sind
+      if (isNaN(number1) || isNaN(number2)) {
+        alert('Bitte geben Sie gültige Zahlen ein.');
+        return;
+      }
+
+      // Addieren Sie die Zahlen und zeigen Sie das Ergebnis im Ausgabefeld an
+      var sum = parseFloat(number1) + parseFloat(number2);
+      document.getElementById('result').value = sum;
+    }
+  </script>
+
+</body>
+</html>

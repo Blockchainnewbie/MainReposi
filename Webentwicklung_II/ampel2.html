@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ampel mit JavaScript</title>
+  <style>
+    /* Stile für die Ampel */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    #ampel {
+      display: inline-block;
+      background-color: #333;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    .licht {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin: 5px auto;
+      transition: background-color 0.5s;
+    }
+    .rot {
+      background-color: #660000; /* Dunkelrot, um ausgeschalteten Zustand darzustellen */
+    }
+    .gelb {
+      background-color: #888; /* Grau, um ausgeschalteten Zustand darzustellen */
+    }
+    .gruen {
+      background-color: #006600; /* Dunkelgrün, um ausgeschalteten Zustand darzustellen */
+    }
+    .aktiv {
+      background-color: #ff0000; /* Rot */
+    }
+    .aktiv.gelb {
+      background-color: #ffdd00; /* Gelb */
+    }
+    .aktiv.gruen {
+      background-color: #00ff00; /* Grün */
+    }
+     /* Stile für den Titel */
+     h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+     /* Stile für den Absatz */
+     p {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    /* Stile für den Button */
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ampel mit JavaScript</h1>
+
+  <!-- Container für Ampel und Button -->
+  <div class="container">
+    <!-- Ampel-Elemente -->
+    <div id="ampel">
+      <div id="rot" class="licht rot"></div>
+      <div id="gelb" class="licht gelb"></div>
+      <div id="gruen" class="licht gruen"></div>
+    </div>
+
+    <!-- Button zum Durchschalten der Ampel-Zustände -->
+    <button id="naechsterZustand">Nächster Zustand</button>
+  </div>
+
+  <br>
+  <br>
+  <p>In diesem Beispiel werden die Ampel-Lichter mit `div`-Elementen und den Klassen `licht`, `rot`, `gelb` und `gruen` erstellt. Die CSS-Regeln definieren die Größe, <br>
+  Form und Farbe der Lichter sowie die Übergänge zwischen den Farben.
+  
+  Die JavaScript-Funktion `naechstePhase()` wechselt die Ampel-Phase, indem sie die Klassen der Lichter aktualisiert. <br> 
+  Die Variable `ampelPhase` 
+  speichert die aktuelle Phase, und ein Array `phases` enthält die Klassen für die aktiven Lichter in jeder Phase. <br>
+  
+  Der Button mit der ID `naechsterZustand` hat ein Click-Event, das die Funktion `naechstePhase()` aufruft, um die Ampel-Phase zu wechseln.</p>
+  
+
+
+  <script>
+    // Variable für die aktuelle Ampel-Phase
+    let ampelPhase = 0;
+
+    // Funktion zum Wechseln der Ampel-Phase
+    function naechstePhase() {
+      // Array mit den Ampel-Phasen (Klassen für die aktiven Lichter)
+      const phases = ['aktiv gruen', 'aktiv gelb', 'aktiv rot'];
+
+      // Aktualisiere die Ampel-Phase
+      ampelPhase = (ampelPhase + 1) % phases.length;
+
+      // Setze die Klassen für die Ampel-Lichter
+      document.getElementById('rot').className = 'licht rot ' + (phases[ampelPhase] === 'aktiv rot' ? 'aktiv' : '');
+      document.getElementById('gelb').className = 'licht gelb ' + (phases[ampelPhase] === 'aktiv gelb' ? 'aktiv' : '');
+      document.getElementById('gruen').className = 'licht gruen ' + (phases[ampelPhase] === 'aktiv gruen' ? 'aktiv' : '');
+    }
+
+    // Füge dem Button ein Click-Event hinzu, um die Ampel-Phase zu wechseln
+    document.getElementById('naechsterZustand').addEventListener('click', naechstePhase);
+  </script>
+
+
+
+</body>
+</html>
