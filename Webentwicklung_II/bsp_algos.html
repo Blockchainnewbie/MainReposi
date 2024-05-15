@@ -1,0 +1,358 @@
+### Eine Übersicht über die geläufigsten Algos in verschiedenen Sprachen, inklusive Pseudocode.
+
+### 1. Bubble Sort
+
+1. Problemverständnis: Der Bubble-Sort-Algorithmus sortiert ein Array von Elementen.
+2. Eingabe und Ausgabe definieren: Der Algorithmus benötigt ein Array als Eingabe und gibt ein sortiertes Array als Ausgabe zurück.
+3. Pseudocode schreiben: Der Pseudocode für den Bubble-Sort-Algorithmus könnte wie folgt aussehen:
+
+Pseudocode:
+
+Funktion bubbleSort(array):
+  Wiederhole, bis das Array sortiert ist:
+    Für jedes Element im Array (außer dem letzten):
+      Wenn das aktuelle Element größer als das nächste Element ist:
+        Tausche die Positionen der beiden Elemente
+```
+4. Implementierung: Hier ist eine Implementierung des Bubble-Sort-Algorithmus in JavaScript:
+
+```csharp
+function bubbleSort(arr) {
+  let len = arr.length;
+  let swapped;
+  do {
+    swapped = false;
+    for (let i = 0; i < len - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        let temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+        swapped = true;
+      }
+    }
+  } while (swapped);
+  return arr;
+}
+
+```
+5. Testen: Testen Sie den Algorithmus mit verschiedenen Testfällen, um sicherzustellen, dass er korrekt funktioniert.
+6. Optimierung: Der Bubble-Sort-Algorithmus hat eine quadratische Laufzeitkomplexität von O(n^2), was bedeutet, dass er für große Arrays sehr langsam sein kann. Es gibt jedoch Möglichkeiten, den Algorithmus zu optimieren, z.B. indem man eine Flag-Variable verwendet, um zu überprüfen, ob im letzten Durchlauf eine Vertauschung stattgefunden hat, und den Algorithmus vorzeitig beendet, wenn das Array sortiert ist.
+
+### 2. Binäre Suche
+
+1. Problemverständnis: Die binäre Suche ist ein Algorithmus zum Suchen eines Elements in einem sortierten Array.
+2. Eingabe und Ausgabe definieren: Der Algorithmus benötigt ein sortiertes Array und ein Zielwert als Eingabe und gibt den Index des Zielwerts im Array als Ausgabe zurück. Wenn das Ziel nicht im Array enthalten ist, soll der Algorithmus einen speziellen Wert zurückgeben, z.B. -1.
+3. Pseudocode schreiben: Der Pseudocode für die binäre Suche könnte wie folgt aussehen:
+
+Pseudocode:
+
+Funktion binarySearch(array, zielwert):
+  Definiere den Anfang und das Ende des Arrays
+  Wiederhole, bis das Array leer ist:
+    Berechne die Mitte des Arrays
+    Wenn das Element in der Mitte dem Zielwert entspricht:
+      Gib den Index des Elements zurück
+    Wenn das Element in der Mitte kleiner als der Zielwert ist:
+      Setze den Anfang des Arrays auf die Mitte + 1
+    Wenn das Element in der Mitte größer als der Zielwert ist:
+      Setze das Ende des Arrays auf die Mitte - 1
+  Gib -1 zurück
+
+```
+4. Implementierung: Hier ist eine Implementierung der binären Suche in JavaScript:
+
+```javascript
+function binarySearch(arr, target) {
+  let left = 0;
+  let right = arr.length - 1;
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (arr[mid] === target) {
+      return mid;
+    }
+    if (arr[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+  return -1;
+}
+```
+
+5. Testen: Testen Sie den Algorithmus mit verschiedenen Testfällen, um sicherzustellen, dass er korrekt funktioniert.
+6. Optimierung: Die binäre Suche hat eine logarithmische Laufzeitkomplexität von O(log n), was bedeutet, dass sie für große Arrays sehr effizient ist. Es gibt jedoch Möglichkeiten, den Algorithmus zu optimieren, z.B. indem man die Größe des Arrays halbiert, anstatt die Mitte zu berechnen.
+
+### 3. Quick Sort
+
+1. Problemverständnis: Quick Sort ist ein Sortieralgorithmus, der auf dem Prinzip "Teile und Herrsche" basiert.
+2. Eingabe und Ausgabe definieren: Der Algorithmus benötigt ein Array als Eingabe und gibt ein sortiertes Array als Ausgabe zurück.
+3. Pseudocode schreiben: Der Pseudocode für Quick Sort könnte wie folgt aussehen:
+
+Pseudocode:
+
+Funktion quickSort(array):
+  Wenn die Länge des Arrays kleiner als 2 ist:
+    Gib das Array zurück
+  Wähle ein Pivotelement aus dem Array
+  Teile das Array in zwei Unterarrays:
+    - Ein Unterarray mit Elementen, die kleiner als das Pivotelement sind
+    - Ein Unterarray mit Elementen, die größer als das Pivotelement sind
+  Rufe quickSort für jedes Unterarray auf und kombiniere die Ergebnisse mit dem Pivotelement
+```
+
+4. Implementierung: Hier ist eine Implementierung von Quick Sort in JavaScript:
+
+```csharp
+function quickSort(arr) {
+  if (arr.length < 2) {
+    return arr;
+  }
+  let pivot = arr[0];
+  let left = [];
+  let right = [];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < pivot) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+  return quickSort(left).concat(pivot, quickSort(right));
+}
+```
+
+5. Testen: Testen Sie den Algorithmus mit verschiedenen Testfällen, um sicherzustellen, dass er korrekt funktioniert.
+6. Optimierung: Quick Sort hat eine durchschnittliche Laufzeitkomplexität von O(n log n), was bedeutet, dass er für große Arrays sehr effizient ist. Es gibt jedoch Möglichkeiten, den Algorithmus zu optimieren, z.B. indem man das Pivotelement optimiert oder indem man zu einem anderen Sortieralgorithmus wechselt, wenn das Array eine bestimmte Größe erreicht hat.
+
+### 4. Merge Sort
+
+1. Problemverständnis: Merge Sort ist ein weiterer Sortieralgorithmus, der auf dem Prinzip "Teile und Herrsche" basiert.
+2. Eingabe und Ausgabe definieren: Der Algorithmus benötigt ein Array als Eingabe und gibt ein sortiertes Array als Ausgabe zurück.
+3. Pseudocode schreiben: Der Pseudocode für Merge Sort könnte wie folgt aussehen:
+
+Pseudocode:
+
+Funktion mergeSort(array):
+  Wenn die Länge des Arrays kleiner als 2 ist:
+    Gib das Array zurück
+  Teile das Array in zwei Hälften
+  Rufe mergeSort für jede Hälfte auf und kombiniere die Ergebnisse mit der Merge-Funktion
+
+Funktion merge(left, right):
+  Definiere ein leeres Ergebnisarray
+  Während beide Unterarrays Elemente enthalten:
+    Wenn das erste Element von left kleiner als das erste Element von right ist:
+      Füge das erste Element von left zum Ergebnisarray hinzu und entferne es aus left
+    Sonst:
+      Füge das erste Element von right zum Ergebnisarray hinzu und entferne es aus right
+  Füge alle verbleibenden Elemente aus left und right zum Ergebnisarray hinzu
+  Gib das Ergebnisarray zurück
+```
+
+4. Implementierung: Hier ist eine Implementierung von Merge Sort in JavaScript:
+
+```csharp
+function mergeSort(arr) {
+  if (arr.length < 2) {
+    return arr;
+  }
+  let middle = Math.floor(arr.length / 2);
+  let left = arr.slice(0, middle);
+  let right = arr.slice(middle);
+  return merge(mergeSort(left), mergeSort(right));
+}
+
+function merge(left, right) {
+  let result = [];
+  while (left.length && right.length) {
+    if (left[0] < right[0]) {
+      result.push(left.shift());
+    } else {
+      result.push(right.shift());
+    }
+  }
+  return result.concat(left, right);
+}
+```
+
+5. Testen: Testen Sie den Algorithmus mit verschiedenen Testfällen, um sicherzustellen, dass er korrekt funktioniert.
+6. Optimierung: Merge Sort hat eine durchschnittliche Laufzeitkomplexität von O(n log n), was bedeutet, dass er für große Arrays sehr effizient ist. Es gibt jedoch Möglichkeiten, den Algorithmus zu optimieren, z.B. indem man die Merge-Funktion optimiert oder indem man zu einem anderen Sortieralgorithmus wechselt, wenn das Array eine bestimmte Größe erreicht hat.
+
+### 5. Dijkstra's Algorithmus
+
+1. Problemverständnis: Dijkstra's Algorithmus ist ein Algorithmus zur Berechnung des kürzesten Weges zwischen zwei Knoten in einem Graphen.
+2. Eingabe und Ausgabe definieren: Der Algorithmus benötigt einen Graphen und einen Startknoten als Eingabe und gibt die kürzesten Wege von dem Startknoten zu allen anderen Knoten im Graphen als Ausgabe zurück.
+3. Pseudocode schreiben: Der Pseudocode für Dijkstra's Algorithmus könnte wie folgt aussehen:
+
+```vbnet
+Funktion dijkstra(graph, start):
+  Initialisiere einen leeren Weg und eine leere Menge besuchter Knoten
+  Füge den Startknoten zum Weg hinzu und setze die Distanz zum Startknoten auf 0
+  Wiederhole, bis alle Knoten besucht wurden:
+    Wähle den Knoten mit der kürzesten Distanz aus, der noch nicht besucht wurde
+    Markiere den Knoten als besucht
+    Aktualisiere die Distanzen zu den Nachbarknoten des aktuellen Knotens
+    Wenn ein Nachbarknoten noch nicht besucht wurde und die Distanz über den aktuellen Knoten kürzer ist als die aktuelle Distanz:
+      Aktualisiere die Distanz zum Nachbarknoten und den vorherigen Knoten im Weg
+  Gib den Weg zurück
+```
+
+4. Implementierung: Hier ist eine Implementierung von Dijkstra's Algorithmus in JavaScript:
+
+```javascript
+function dijkstra(graph, start) {
+  let distances = {};
+  let previous = {};
+  let unvisited = new Set(graph.nodes);
+
+  for (let node of graph.nodes) {
+    distances[node] = Infinity;
+    previous[node] = null;
+  }
+
+  distances[start] = 0;
+
+  while (unvisited.size > 0) {
+    let current = findMinDistanceNode(distances, unvisited);
+    unvisited.delete(current);
+
+    for (let neighbor of graph.adjacencyList[current]) {
+      let alt = distances[current] + graph.edges[current][neighbor];
+      if (alt < distances[neighbor]) {
+        distances[neighbor] = alt;
+        previous[neighbor] = current;
+      }
+    }
+  }
+
+  return { distances, previous };
+}
+
+function findMinDistanceNode(distances, unvisited) {
+  let minDistance = Infinity;
+  let minNode = null;
+
+  for (let node of unvisited) {
+    if (distances[node] < minDistance) {
+      minDistance = distances[node];
+      minNode = node;
+    }
+  }
+
+  return minNode;
+}
+```
+
+5. Testen: Testen Sie den Algorithmus mit verschiedenen Testfällen, um sicherzustellen, dass er korrekt funktioniert.
+6. Optimierung: Dijkstra's Algorithmus hat eine Laufzeitkomplexität von O(|E| + |V| log |V|), was bedeutet, dass er für große Graphen sehr effizient ist. Es gibt jedoch Möglichkeiten, den Algorithmus zu optimieren, z.B. indem man einen Binärheap verwendet, um die Knoten mit den kürzesten Distanzen zu speichern.
+
+### 6. A\*-Algorithmus
+
+1. Problemverständnis: Der A\*-Algorithmus ist ein Algorithmus zur Berechnung des kürzesten Weges zwischen zwei Knoten in einem Graphen mit Gewichten.
+2. Eingabe und Ausgabe definieren: Der Algorithmus benötigt einen Graphen mit Gewichten und einen Start- und Zielknoten als Eingabe und gibt den kürzesten Weg vom Start- zum Zielknoten als Ausgabe zurück.
+3. Pseudocode schreiben: Der Pseudocode für den A\*-Algorithmus könnte wie folgt aussehen:
+
+```vbnet
+Funktion aStar(graph, start, goal):
+  Initialisiere einen leeren Weg und eine leere Menge besuchter Knoten
+  Füge den Startknoten zum Weg hinzu und setze die Distanz zum Startknoten auf 0
+  Wiederhole, bis der Zielknoten erreicht wurde:
+    Wähle den Knoten mit der niedrigsten Schätzung der Gesamtkosten aus, der noch nicht besucht wurde
+    Markiere den Knoten als besucht
+    Wenn der Knoten der Zielknoten ist:
+      Gib den Weg zurück
+    Aktualisiere die Distanzen zu den Nachbarknoten des aktuellen Knotens
+    Wenn ein Nachbarknoten noch nicht besucht wurde und die Distanz über den aktuellen Knoten kürzer ist als die aktuelle Distanz:
+      Aktualisiere die Distanz zum Nachbarknoten, den vorherigen Knoten im Weg und die Schätzung der Gesamtkosten
+  Gib "Kein Weg gefunden" zurück
+```
+
+4. Implementierung: Hier ist eine Implementierung des A\*-Algorithmus in JavaScript:
+
+```javascript
+function aStar(graph, start, goal) {
+  let openSet = new Set([start]);
+  let closedSet = new Set();
+  let cameFrom = {};
+  let gScore = {};
+  let fScore = {};
+
+  for (let node of graph.nodes) {
+    gScore[node] = Infinity;
+    fScore[node] = Infinity;
+  }
+
+  gScore[start] = 0;
+  fScore[start] = heuristic(start, goal);
+
+  while (openSet.size > 0) {
+    let current = findMinFScoreNode(fScore, openSet);
+    if (current === goal) {
+      return reconstructPath(cameFrom, start, goal);
+    }
+
+    openSet.delete(current);
+    closedSet.add(current);
+
+    for (let neighbor of graph.adjacencyList[current]) {
+      let tentativeGScore = gScore[current] + graph.edges[current][neighbor];
+      if (!closedSet.has(neighbor) && (tentativeGScore < gScore[neighbor])) {
+        cameFrom[neighbor] = current;
+        gScore[neighbor] = tentativeGScore;
+        fScore[neighbor] = gScore[neighbor] + heuristic(neighbor, goal);
+        if (!openSet.has(neighbor)) {
+          openSet.add(neighbor);
+        }
+      }
+    }
+  }
+
+  return "No path found";
+}
+
+function findMinFScoreNode(fScore, openSet) {
+  let minFScore = Infinity;
+  let minNode = null;
+
+  for (let node of openSet) {
+    if (fScore[node] < minFScore) {
+      minFScore = fScore[node];
+      minNode = node;
+    }
+  }
+
+  return minNode;
+}
+
+function reconstructPath(cameFrom, start, goal) {
+  let path = [goal];
+  let current = goal;
+
+  while (current !== start) {
+    current = cameFrom[current];
+    path.unshift(current);
+  }
+
+  return path;
+}
+
+function heuristic(a, b) {
+  // Verwenden Sie eine Heuristik, um die Kosten von a nach b zu schätzen
+  // In diesem Beispiel verwenden wir die Manhattan-Distanz
+  let ax = graph.nodePositions[a][0];
+  let ay = graph.nodePositions[a][1];
+  let bx = graph.nodePositions[b][0];
+  let by = graph.nodePositions[b][1];
+  return Math.abs(ax - bx) + Math.abs(ay - by);
+}
+```
+
+5. Testen: Testen Sie den Algorithmus mit verschiedenen Testfällen, um sicherzustellen, dass er korrekt funktioniert.
+6. Optimierung: Der A\*-Algorithmus hat eine Laufzeitkomplexität von O(|E| log |V|), was bedeutet, dass er für große Graphen
+ effizient ist. Es gibt jedoch Möglichkeiten, den Algorithmus zu optimieren, z.B. indem man eine bessere 
+ Heuristik verwendet oder indem man die Open-Set-Datenstruktur optimiert.
+
+Zusammenfassend lässt sich sagen, dass die Entwicklung von Algorithmen eine systematische Herangehensweise erfordert, 
+die aus den Schritten Problemverständnis, Eingabe- und Ausgabedefinition, Pseudocode, Implementierung, Testen und Optimierung besteht. 
+Indem man diese Schritte befolgt, kann man effiziente und korrekte Algorithmen für eine Vielzahl von Problemen entwickeln.

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="M. Haberland">
+    <title>Zahlenraten-Spiel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="number"] {
+            padding: 8px;
+            margin-bottom: 10px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        table {
+            margin: 0 auto;
+            margin-top: 20px;
+            width: 50%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- Optional: Verknüpfung mit externer CSS-Datei für das Styling -->
+</head>
+<body>
+    <h1>Zahlenraten-Spiel</h1>
+    <p>Errate die Zahl zwischen 1 und 100:</p>
+    <input type="number" id="guessInput" placeholder="Dein Tipp">
+    <button onclick="checkGuess()">Tipp abgeben</button>
+    <div id="output"></div>
+
+    <!-- Tabelle mit den Alerts -->
+    <table>
+        <caption>Bedeutung der Alerts</caption>
+        <thead>
+            <tr>
+                <th>Alert</th>
+                <th>Bedeutung</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="background-color: #ffb3b3;">heiß</td>
+                <td>Du bist sehr nah an der gesuchten Zahl!</td>
+            </tr>
+            <tr>
+                <td style="background-color: #ffcc99;">sehr warm</td>
+                <td>Du bist nah an der gesuchten Zahl!</td>
+            </tr>
+            <tr>
+                <td style="background-color: #ffffcc;">lauwarm</td>
+                <td>Du bist etwas weiter weg von der gesuchten Zahl!</td>
+            </tr>
+            <tr>
+                <td style="background-color: #ccffcc;">warm</td>
+                <td>Du bist noch ein gutes Stück von der gesuchten Zahl entfernt!</td>
+            </tr>
+            <tr>
+                <td style="background-color: #cceeff;">kalt</td>
+                <td>Du bist ziemlich weit weg von der gesuchten Zahl!</td>
+            </tr>
+            <tr>
+                <td style="background-color: #ccccff;">eiskalt</td>
+                <td>Du bist sehr weit weg von der gesuchten Zahl!</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="js\zahlenraten.js"></script> <!-- Verknüpfung mit externer Javascript-Datei für die Spiellogik -->
+</body>
+</html>
+
+
