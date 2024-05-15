@@ -123,7 +123,9 @@ function quickSort(arr) {
 ```
 
 5. Testen: Testen Sie den Algorithmus mit verschiedenen Testfällen, um sicherzustellen, dass er korrekt funktioniert.
-6. Optimierung: Quick Sort hat eine durchschnittliche Laufzeitkomplexität von O(n log n), was bedeutet, dass er für große Arrays sehr effizient ist. Es gibt jedoch Möglichkeiten, den Algorithmus zu optimieren, z.B. indem man das Pivotelement optimiert oder indem man zu einem anderen Sortieralgorithmus wechselt, wenn das Array eine bestimmte Größe erreicht hat.
+6. Optimierung: Quick Sort hat eine durchschnittliche Laufzeitkomplexität von O(n log n), was bedeutet, dass er für große Arrays sehr effizient ist. 
+Es gibt jedoch Möglichkeiten, den Algorithmus zu optimieren, z.B. indem man das Pivotelement optimiert oder indem man zu einem anderen 
+Sortieralgorithmus wechselt, wenn das Array eine bestimmte Größe erreicht hat.
 
 ### 4. Merge Sort
 
@@ -177,12 +179,15 @@ function merge(left, right) {
 ```
 
 5. Testen: Testen Sie den Algorithmus mit verschiedenen Testfällen, um sicherzustellen, dass er korrekt funktioniert.
-6. Optimierung: Merge Sort hat eine durchschnittliche Laufzeitkomplexität von O(n log n), was bedeutet, dass er für große Arrays sehr effizient ist. Es gibt jedoch Möglichkeiten, den Algorithmus zu optimieren, z.B. indem man die Merge-Funktion optimiert oder indem man zu einem anderen Sortieralgorithmus wechselt, wenn das Array eine bestimmte Größe erreicht hat.
+6. Optimierung: Merge Sort hat eine durchschnittliche Laufzeitkomplexität von O(n log n), was bedeutet, dass er für große Arrays 
+sehr effizient ist. Es gibt jedoch Möglichkeiten, den Algorithmus zu optimieren, z.B. indem man die Merge-Funktion optimiert oder indem 
+man zu einem anderen Sortieralgorithmus wechselt, wenn das Array eine bestimmte Größe erreicht hat.
 
 ### 5. Dijkstra's Algorithmus
 
 1. Problemverständnis: Dijkstra's Algorithmus ist ein Algorithmus zur Berechnung des kürzesten Weges zwischen zwei Knoten in einem Graphen.
-2. Eingabe und Ausgabe definieren: Der Algorithmus benötigt einen Graphen und einen Startknoten als Eingabe und gibt die kürzesten Wege von dem Startknoten zu allen anderen Knoten im Graphen als Ausgabe zurück.
+2. Eingabe und Ausgabe definieren: Der Algorithmus benötigt einen Graphen und einen Startknoten als Eingabe und gibt die kürzesten 
+Wege von dem Startknoten zu allen anderen Knoten im Graphen als Ausgabe zurück.
 3. Pseudocode schreiben: Der Pseudocode für Dijkstra's Algorithmus könnte wie folgt aussehen:
 
 ```vbnet
@@ -245,15 +250,19 @@ function findMinDistanceNode(distances, unvisited) {
 ```
 
 5. Testen: Testen Sie den Algorithmus mit verschiedenen Testfällen, um sicherzustellen, dass er korrekt funktioniert.
-6. Optimierung: Dijkstra's Algorithmus hat eine Laufzeitkomplexität von O(|E| + |V| log |V|), was bedeutet, dass er für große Graphen sehr effizient ist. Es gibt jedoch Möglichkeiten, den Algorithmus zu optimieren, z.B. indem man einen Binärheap verwendet, um die Knoten mit den kürzesten Distanzen zu speichern.
+6. Optimierung: Dijkstra's Algorithmus hat eine Laufzeitkomplexität von O(|E| + |V| log |V|), was bedeutet, dass er für 
+große Graphen sehr effizient ist. Es gibt jedoch Möglichkeiten, den Algorithmus zu optimieren, z.B. indem man einen Binärheap verwendet, 
+um die Knoten mit den kürzesten Distanzen zu speichern.
 
 ### 6. A\*-Algorithmus
 
 1. Problemverständnis: Der A\*-Algorithmus ist ein Algorithmus zur Berechnung des kürzesten Weges zwischen zwei Knoten in einem Graphen mit Gewichten.
-2. Eingabe und Ausgabe definieren: Der Algorithmus benötigt einen Graphen mit Gewichten und einen Start- und Zielknoten als Eingabe und gibt den kürzesten Weg vom Start- zum Zielknoten als Ausgabe zurück.
+2. Eingabe und Ausgabe definieren: Der Algorithmus benötigt einen Graphen mit Gewichten und einen Start- und Zielknoten als 
+Eingabe und gibt den kürzesten Weg vom Start- zum Zielknoten als Ausgabe zurück.
 3. Pseudocode schreiben: Der Pseudocode für den A\*-Algorithmus könnte wie folgt aussehen:
 
-```vbnet
+Pseudocode: 
+
 Funktion aStar(graph, start, goal):
   Initialisiere einen leeren Weg und eine leere Menge besuchter Knoten
   Füge den Startknoten zum Weg hinzu und setze die Distanz zum Startknoten auf 0
@@ -266,7 +275,7 @@ Funktion aStar(graph, start, goal):
     Wenn ein Nachbarknoten noch nicht besucht wurde und die Distanz über den aktuellen Knoten kürzer ist als die aktuelle Distanz:
       Aktualisiere die Distanz zum Nachbarknoten, den vorherigen Knoten im Weg und die Schätzung der Gesamtkosten
   Gib "Kein Weg gefunden" zurück
-```
+
 
 4. Implementierung: Hier ist eine Implementierung des A\*-Algorithmus in JavaScript:
 

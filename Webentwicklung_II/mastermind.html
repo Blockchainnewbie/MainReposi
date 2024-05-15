@@ -1,0 +1,84 @@
+<!-- Der Mastermind Algorithmus Step-by-Step 
+
+    Mastermind ist ein Spiel, bei dem eine Person eine geheime Farbkombination erstellt und die andere Person versucht, 
+    diese Kombination durch eine Reihe von Vermutungen herauszufinden. 
+    Nach jeder Vermutung erhält die ratende Person Hinweise darüber, wie viele Farben an der richtigen Position und wie 
+    viele Farben an der falschen Position stehen.
+
+    Pseudocode:
+
+    1. Führe eine Schleife aus, bis die geheime Kombination erraten wurde:
+    1.1. Erzeuge eine Vermutung, basierend auf den bisherigen Vermutungen und den erhaltenen Hinweisen.
+    1.2. Erhalte die Hinweise für die aktuelle Vermutung.
+    1.3. Aktualisiere die Liste der möglichen Kombinationen, basierend auf den erhaltenen Hinweisen.
+    2. Gib die erratene geheime Kombination aus.
+
+    Es gibt verschiedene Strategien, um eine Vermutung zu erzeugen und die Liste der möglichen Kombinationen zu aktualisieren. 
+    Eine der bekanntesten Strategien ist die "Minimax"-Strategie, 
+    die versucht, die Anzahl der notwendigen Vermutungen zu minimieren, indem sie die schlechtestmögliche Antwort des Gegners berücksichtigt.
+
+    1. Führe eine Schleife aus, bis die geheime Kombination erraten wurde:
+    1.1. Bestimme die nächste Vermutung, indem du die Minimax-Funktion aufrufst.
+    1.2. Erhalte die Hinweise für die aktuelle Vermutung.
+    1.3. Aktualisiere die Liste der möglichen Kombinationen, basierend auf den erhaltenen Hinweisen.
+    2. Gib die erratene geheime Kombination aus.
+
+    Funktion Minimax(Liste möglicher Kombinationen):
+    1. Wenn die Liste nur eine Kombination enthält, gib diese Kombination als Vermutung zurück.
+    2. Initialisiere eine Variable "max_score" mit einem kleinen Wert und eine Variable "best_guess" mit einer leeren Kombination.
+    3. Führe eine Schleife aus, um jede mögliche Vermutung zu überprüfen:
+        3.1. Führe eine Schleife aus, um jede mögliche Antwort des Gegners zu simulieren.
+        3.2. Berechne den Score für die aktuelle Vermutung und Antwort, indem du die Anzahl der notwendigen Vermutungen minimierst.
+        3.3. Wenn der aktuelle Score größer ist als "max_score", aktualisiere "max_score" und "best_guess".
+    4. Gib "best_guess" als Vermutung zurück.
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="M. Haberland">
+    <title>Mastermindl</title>
+
+    <link rel="stylesheet" href="styles.css"> <!-- Optional: Verknüpfung mit externer CSS-Datei für das Styling -->
+</head>
+<body>
+
+<script>
+
+    // Variablen anlegen 1. Variable Array 1 2. Variable Array 2 3. Variable Ergebniss Array
+
+    let gesuchteFarben = [ gruen, gelb, rot, blau ];
+    let abgegebeneTipps = [ schwarz, weiß, lila, blau ];
+    let resultateBlackWhite = [];
+
+    let schwarz = 0;
+    let weiß = 0;
+    let i=0;
+    // Überprüfung ob alle 4Felder schwarz sind
+    for ( i; i < gesuchteFarben.lenght; i++)
+    {
+        if (schwarz == 4 ){
+            window.alert = "Du hast gewonnen!";
+        }
+        else {
+            if (abgegebeneTipps[i]==gesuchteFarben[i] ){
+
+                schwarz=schwarz +1;
+
+
+            } 
+    }
+    
+
+
+
+
+
+</script>
+ 
+</body>
+</html>
