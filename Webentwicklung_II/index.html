@@ -1,31 +1,97 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webentwicklung Part II</title>
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="pfad\favicon.ico" type="image/x-icon">
-  <!-- Stylesheets -->
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <!-- Meta Tags für SEO, Social Media etc. -->
-  <meta name="description" content="Eine Webseite zum erlernen der Webentwicklung mit HTML, CSS und Javascript!">
-  <meta name="keywords" content="Schlüsselwörter, getrennt, durch, Kommas">
-  <meta name="author" content="M. Haberland">
+  <title>Bubble Sort</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    #input {
+      margin-bottom: 10px;
+    }
+    #output {
+      font-weight: bold;
+    }
+    #number-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .number-item {
+      display: inline-block;
+      margin: 5px;
+      padding: 5px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+    }
+  </style>
 </head>
-
 <body>
-  <div class="header">
-    <!-- Hier kommt der Header-Inhalt hin -->
-	
-	</div>
+  <h1>Bubble Sort</h1>
+  <label for="input">Enter the number of random numbers:</label>
+  <input type="number" id="input" min="1" value="1000">
+  <button onclick="sortNumbers()">Sort</button>
+  <button onclick="generateNumbers()">New Numbers</button>
+  <p id="output"></p>
+  <ul id="number-list"></ul>
 
-  <div class="main">
-  <!-- Hier kommt der main-Inhalt hin -->
-  </div>
-  
-  <div class="footer">
-    <!-- Hier kommt der Footer-Inhalt hin -->
-  </div>
+  <script>
+    function bubbleSort(arr) {
+      let len = arr.length;
+      let swapped;
+      let startTime = performance.now(); // Start measuring the time
+      do {
+        swapped = false;
+        for (let i = 0; i < len - 1; i++) {
+          if (arr[i] > arr[i + 1]) {
+            let temp = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = temp;
+            swapped = true;
+          }
+        }
+      } while (swapped);
+      let endTime = performance.now(); // Stop measuring the time
+      let timeTaken = endTime - startTime; // Calculate the time taken in milliseconds
+      return { sortedArray: arr, timeTaken: timeTaken };
+    }
+
+    function sortNumbers() {
+      const input = document.getElementById('input').value;
+      const numbers = generateRandomNumbers(input);
+      const { sortedArray, timeTaken } = bubbleSort(numbers);
+      document.getElementById('output').textContent = 'Sorted numbers: ' + sortedArray.join(', ');
+      document.getElementById('time-taken').textContent = 'Time taken: ' + timeTaken.toFixed(2) + ' milliseconds';
+      displayNumberList(sortedArray);
+    }
+
+    function generateNumbers() {
+      const input = document.getElementById('input').value;
+      const numbers = generateRandomNumbers(input);
+      displayNumberList(numbers);
+    }
+
+    function generateRandomNumbers(count) {
+      const numbers = [];
+      for (let i = 0; i < count; i++) {
+        const number = Math.floor(Math.random() * 1000); // Generate a random number between 0 and 999
+        numbers.push(number);
+      }
+      return numbers;
+    }
+
+    function displayNumberList(numbers) {
+      const numberList = document.getElementById('number-list');
+      numberList.innerHTML = ''; // Clear the existing list
+
+      for (let i = 0; i < numbers.length; i++) {
+        const number = numbers[i];
+        const listItem = document.createElement('li');
+        listItem.classList.add('number-item');
+        listItem.textContent = number;
+        numberList.appendChild(listItem);
+      }
+    }
+  </script>
 </body>
 </html>

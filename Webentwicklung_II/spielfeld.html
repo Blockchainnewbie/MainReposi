@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webentwicklung Part II</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="pfad\favicon.ico" type="image/x-icon">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="tables.css">
+    <!-- Meta Tags für SEO, Social Media etc. -->
+    <meta name="description" content="Eine Webseite zum erlernen der Webentwicklung mit HTML, CSS und Javascript!">
+    <meta name="keywords" content="Schlüsselwörter, getrennt, durch, Kommas">
+    <meta name="author" content="M. Haberland">
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+        }
+
+        .field {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        .ship {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <!-- Hier kommt der Header-Inhalt hin -->
+
+    </div>
+
+    <div class="main">
+        <!-- Hier kommt der main-Inhalt hin -->
+        <h2>Schiffeversenken</h2>
+        <!-- Button mit Hintergrundfarbe -->
+        <button id="coloredButton" style="background-color: #4CAF50; color: white;">Spielfeld laden</button>
+        <button id="create-board-button">Spielbrett erstellen</button>
+        <div id="board-container"></div>
+
+        <div>
+            <label for="x-input">X-Koordinate:</label>
+            <input type="number" id="x-input" min="0" max="9">
+        </div>
+
+        <div>
+            <label for="y-input">Y-Koordinate:</label>
+            <input type="number" id="y-input" min="0" max="9">
+        </div>
+
+        <div>
+            <label for="direction-input">Ausrichtung:</label>
+            <select id="direction-input">
+                <option value="horizontal">Horizontal</option>
+                <option value="vertical">Vertical</option>
+            </select>
+        </div>
+
+        <button id="add-ship-button">Schiff hinzufügen</button>
+
+        
+
+    <div class="footer">
+        <!-- Hier kommt der Footer-Inhalt hin -->
+    </div>
+    
+    <script>
+        // Variable zum Speichern des Buttons, der das Spielfeld erstellt
+        const createBoardButton = document.getElementById('create-board-button');
+
+        // Variable zum Speichern des Containers, der das Spielfeld enthält
+        const boardContainer = document.getElementById('board-container');
+
+        // Variable zum Speichern des Buttons, der das Schiff hinzufügt
+        const addShipButton = document.getElementById('add-ship-button');
+
+        // Event Listener für den Button, der das Spielfeld erstellt
+        createBoardButton.addEventListener('click', () => {
+            // Erstellen eines neuen Div-Containers
+            const container = document.createElement('div');
+
+            // Hinzufügen der CSS-Klasse "container" zum Div-Container
+            container.classList.add('container');
+
+            // Erstellung der 10x10 Felder des Spielfelds
+            for (let i = 0; i < 10; i++) {
+                for (let j = 0; j < 10; j++) {
+                    // Erstellen eines neuen Div-Elements für jedes Feld
+                    const field = document.createElement('div');
+
+                    // Hinzufügen der CSS-Klasse "field" zum Div-Element
+                    field.classList.add('field');
+
+                    // Vergabe einer eindeutigen ID für jedes Feld
+                    field.id = `field-${i}-${j}`;
+
+                    // Hinzufügen des Div-Elements zum Container
+                    container.appendChild(field);
+                }
+            }
+
+            // Löschen des bisherigen Inhalts des Containers
+            boardContainer.innerHTML = '';
+
+            // Hinzufügen des neuen Containers zum Spielfeld-Container
+            boardContainer.appendChild(container);
+        });
+
+        // Event Listener für den Button, der das Schiff hinzufügt
+        addShipButton.addEventListener('click', () => {
+            // Auslesen der Werte aus den Eingabefeldern
+            const x = parseInt(document.getElementById('x-input').value);
+            const y = parseInt(document.getElementById('y-input').value);
+            const direction = document.getElementById('direction-input').value;
+
+            // Hinzufügen des Schiffs auf dem Spielfeld
+            addShip(x, y, direction);
+        });
+
+        function addShip(x, y, direction) {
+            // Überprüfe, ob die Position des Schiffs auf dem Spielfeld liegt
+            if (x < 0 || x >= 10 || y < 0 || y >= 10) {
+                alert('Ungültige Position');
+                return;
+            }
+
+            // Überprüfe, ob die Ausrichtung des Schiffs gültig ist
+            if (direction !== 'horizontal' && direction !== 'vertical') {
+                alert('Ungültige Ausrichtung');
+                return;
+            }
+
+            // Überprüfe, ob das Schiff auf dem Spielfeld platziert werden kann, ohne dass es überlappt oder das Spielfeld verlässt
+            if (direction === 'horizontal') {
+                if (y + 4 > 10) {
+                    alert('Das Schiff passt nicht auf das Spielfeld');
+                    return;
+                }
+
+                for (let i = 0; i < 5; i++) {
+                    const field = document.getElementById(`field-${x}-${y + i}`);
+                    if (field.classList.contains('ship')) {
+                        alert('Das Schiff überlappt mit einem anderen Schiff');
+                        return;
+                    }
+                }
+            } else {
+                if (x + 4 > 10) {
+                    alert('Das Schiff passt nicht auf das Spielfeld');
+                    return;
+                }
+
+                for (let i = 0; i < 5; i++) {
+                    const field = document.getElementById(`field-${x + i}-${y}`);
+                    if (field.classList.contains('ship')) {
+                        alert('Das Schiff überlappt mit einem anderen Schiff');
+                        return;
+                    }
+                }
+            }
+
+            // Wenn alle Überprüfungen bestanden sind, trage das Schiff auf dem Spielfeld ein
+            if (direction === 'horizontal') {
+                for (let i = 0; i < 5; i++) {
+                    const field = document.getElementById(`field-${x}-${y + i}`);
+                    field.classList.add('ship');
+                }
+            } else {
+                for (let i = 0; i < 5; i++) {
+                    const field = document.getElementById(`field-${x + i}-${y}`);
+                    field.classList.add('ship');
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
